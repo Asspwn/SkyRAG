@@ -13,6 +13,27 @@ A production-ready Retrieval-Augmented Generation (RAG) system with PDF document
 - **FastAPI Backend** - Modern async API with auto-documentation
 
 ---
+## Discussion of the solution
+
+First of all I wanted to create a RAG that can be easily manageable with features like document upload, indexing and deletion.
+
+I stick to the Haystack framework, as their new version has more clean coding pipeline components. 
+
+In my opinion, one of the biggest concerns of RAG is clean data. There is a relatively new OCR model which is backed by a small VLM called DotsOCR. I used it to parse pdf files because it can easily convert tables to markdowns and extract images. Images are saved in the vector store of the user so that it can be interpreted by LLM if it extracted a relevant chunk of the document which has the image.
+
+Skyro can extend it to scale solutions both for the internal documentation as well as for clients to get answers faster and more reliable.
+
+Integration can happen on the level of API. For the demo purposes I have created a simple UI using the streamlit.
+
+For the product team the solution can be presented as a DEMO and further features updates can be discussed. Based on that, the Backend and Frontend engineers and AI engineers can work on a basis of sprints to deploy this solution to the solid production level.
+
+Both API and Open sourced LLMs can be used.
+The requirements to the LLMs are:
+Multimodal (Filipino and English are primal languages)
+Multilingual
+Enough context size (at least 4096 due to images)
+
+
 
 ## Architecture
 <img width="682" height="242" alt="image" src="https://github.com/user-attachments/assets/f6bfc072-9dbb-48c2-90ae-110bd3329b60" />
