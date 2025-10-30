@@ -311,7 +311,6 @@ For production use:
 4. **Scale API** - Multiple API replicas behind load balancer
 5. **Backup Data** - Regular backups of `./data/` directory
 
-See `DOCKER_SETUP.md` for production deployment examples.
 
 ---
 
