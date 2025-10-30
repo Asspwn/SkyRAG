@@ -2,6 +2,9 @@
 
 A production-ready Retrieval-Augmented Generation (RAG) system with PDF document processing using DotsOCR vision-language model. Each user gets isolated document storage and vector embeddings for semantic search.
 
+Link to the DEMO:
+https://leonida-interrupted-gracelyn.ngrok-free.dev/
+
 ## Features
 
 - **PDF Document Processing** - Upload and parse PDFs with DotsOCR (VLM-based OCR)
