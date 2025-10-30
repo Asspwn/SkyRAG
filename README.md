@@ -150,6 +150,9 @@ curl http://localhost:8034/api/users/john/images/doc1_page_1.jpg -o image.jpg
 <img width="1364" height="484" alt="image" src="https://github.com/user-attachments/assets/e937dc0d-8f2e-418a-b242-de72ff2941ba" />
 
 
+<img width="1288" height="684" alt="image" src="https://github.com/user-attachments/assets/8bb97216-b4c3-4716-9280-c23f09553aa7" />
+
+<img width="1624" height="1164" alt="image" src="https://github.com/user-attachments/assets/20f829c0-8985-4da0-a0bd-cbaddac1af65" />
 
 
 ### Components
