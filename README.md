@@ -150,8 +150,6 @@ curl http://localhost:8034/api/users/john/images/doc1_page_1.jpg -o image.jpg
 
 <img width="644" height="342" alt="image" src="https://github.com/user-attachments/assets/54675e54-4da8-40bc-a530-4ddb325d2583" />
 
-<img width="812" height="584" alt="image" src="https://github.com/user-attachments/assets/7f0a1d34-e211-462e-a4f3-b0095867b354" />
-
 ### Components
 
 1. **vLLM Server** - Serves DotsOCR VLM model for document parsing
