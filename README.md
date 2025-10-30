@@ -17,27 +17,7 @@ A production-ready Retrieval-Augmented Generation (RAG) system with PDF document
 
 ## Quick Start
 
-### Option 1: Docker (Recommended)
-
-```bash
-# 1. Clone and setup
-git clone <repo-url>
-cd User_RAG
-git submodule update --init --recursive
-
-# 2. Download model weights (~5.8GB)
-cd dots.ocr && python3 tools/download_model.py && cd ..
-
-# 3. Start services
-docker compose up -d
-
-# 4. Test
-curl http://localhost:8034/health
-```
-
-**📖 Full Docker Guide:** See `DOCKER_SETUP.md`
-
-### Option 2: Manual Setup
+### Manual Setup
 
 ```bash
 # 1. Setup environment
@@ -65,7 +45,6 @@ cp .env.example .env
 **📖 Full Manual Guide:** See `DEPLOYMENT.md`
 
 ---
-
 ## Usage Example
 
 ### Upload Documents
@@ -168,24 +147,7 @@ curl http://localhost:8034/api/users/john/images/doc1_page_1.jpg -o image.jpg
 
 ## Architecture
 
-```
-Client Request
-      │
-      ▼
-┌─────────────────┐
-│   FastAPI       │  Port 8034
-│   (rag-api)     │  • Upload PDFs
-│                 │  • Search
-│                 │  • Manage users
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  vLLM Server    │  Port 8033
-│  (vllm-server)  │  • DotsOCR model
-│                 │  • PDF → Text + Images
-└─────────────────┘
-```
+
 
 ### Components
 
@@ -251,8 +213,6 @@ User_RAG/
 
 ---
 
-## Configuration
-
 ### Environment Variables
 
 ```bash
@@ -267,19 +227,6 @@ export EMBEDDING_MODEL=intfloat/multilingual-e5-large-instruct
 export VLLM_SERVER_URL=http://localhost:8033
 ```
 
-### GPU Selection
-
-```yaml
-# docker-compose.yml
-deploy:
-  resources:
-    reservations:
-      devices:
-        - driver: nvidia
-          device_ids: ['0']  # Change GPU ID here
-```
-
----
 
 ## Important Notes
 
@@ -320,52 +267,6 @@ Interactive API docs available at: `http://localhost:8034/docs`
 
 ---
 
-## Troubleshooting
-
-### Docker Issues
-
-```bash
-# Check container status
-docker compose ps
-
-# View logs
-docker compose logs -f
-
-# Restart specific service
-docker compose restart vllm-server
-docker compose restart rag-api
-```
-
-### Common Issues
-
-**1. vLLM container exits immediately**
-- Check logs: `docker compose logs vllm-server`
-- Verify model weights are downloaded
-- Check GPU availability: `nvidia-smi`
-
-**2. API can't connect to vLLM**
-```bash
-docker compose exec rag-api curl http://vllm-server:8033/health
-```
-
-**3. Out of GPU memory**
-- Reduce `--gpu-memory-utilization` in `docker-compose.yml`
-- Use a GPU with more VRAM
-
-**4. Slow vLLM Docker download**
-- Use manual setup instead (see `DEPLOYMENT.md`)
-- Or download overnight: `docker pull vllm/vllm-openai:v0.11.0 &`
-
----
-
-## Development
-
-### Hot Reload
-
-API code changes are reflected with restart:
-```bash
-docker compose restart rag-api
-```
 
 ### Testing
 
@@ -378,19 +279,6 @@ curl -X POST "http://localhost:8034/api/users/test/documents/upload" \
 curl -X POST "http://localhost:8034/api/users/test/search" \
   -H "Content-Type: application/json" \
   -d '{"query": "test query", "top_k": 3}'
-```
-
-### Monitoring
-
-```bash
-# Check GPU usage
-nvidia-smi
-
-# View container stats
-docker stats
-
-# Check logs
-docker compose logs -f
 ```
 
 ---
@@ -409,28 +297,6 @@ See `DOCKER_SETUP.md` for production deployment examples.
 
 ---
 
-## Documentation
-
-- **`README.md`** (this file) - Overview and quick start
-- **`DOCKER_SETUP.md`** - Comprehensive Docker deployment guide
-- **`DEPLOYMENT.md`** - Manual setup and production deployment
-- **`API_DOCUMENTATION.md`** - Complete API reference with examples
-
----
-
-## License
-
-[Your License Here]
-
-## Support
-
-For issues or questions:
-1. Check the documentation files listed above
-2. Review logs: `docker compose logs -f`
-3. Verify hardware requirements
-4. Check GPU: `nvidia-smi`
-
----
 
 ## Acknowledgments
 
