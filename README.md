@@ -147,6 +147,9 @@ curl http://localhost:8034/api/users/john/images/doc1_page_1.jpg -o image.jpg
 
 ## Architecture
 
+<img width="1364" height="484" alt="image" src="https://github.com/user-attachments/assets/e937dc0d-8f2e-418a-b242-de72ff2941ba" />
+
+
 
 
 ### Components
