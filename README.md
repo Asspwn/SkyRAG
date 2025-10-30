@@ -29,9 +29,9 @@ For the product team the solution can be presented as a DEMO and further feature
 
 Both API and Open sourced LLMs can be used.
 The requirements to the LLMs are:
-Multimodal (Filipino and English are primal languages)
-Multilingual
-Enough context size (at least 4096 due to images)
+- Multimodal 
+- Multilingual (Filipino and English are primal languages)
+- Enough context size (at least 4096 due to images)
 
 
 
