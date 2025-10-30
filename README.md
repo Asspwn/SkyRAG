@@ -16,6 +16,15 @@ I have already indexed pdfs and they are stored in vector store. Please choose t
 - **Image Extraction** - Automatically extract and serve images from PDFs
 - **FastAPI Backend** - Modern async API with auto-documentation
 
+## Models & Frameworks
+
+  - **DotsOCR (VLM)** - Vision-language model for advanced PDF parsing
+  - **multilingual-e5-large-instruct** - Embedding model for semantic search
+  - **GPT-4o-mini** - OpenAI's vision-enabled LLM for Q&A
+  - **Haystack 2.18** - Modular NLP framework for RAG pipelines
+  - **Qdrant** - Vector database for efficient similarity search
+  - **vLLM v0.11.0** - High-performance inference server
+
 ---
 ## Discussion of the solution
 
