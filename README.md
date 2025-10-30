@@ -11,6 +11,23 @@ A production-ready Retrieval-Augmented Generation (RAG) system with PDF document
 - **Multi-User Support** - Isolated storage per user
 - **Image Extraction** - Automatically extract and serve images from PDFs
 - **FastAPI Backend** - Modern async API with auto-documentation
+
+---
+
+## Architecture
+<img width="682" height="242" alt="image" src="https://github.com/user-attachments/assets/f6bfc072-9dbb-48c2-90ae-110bd3329b60" />
+
+<img width="644" height="342" alt="image" src="https://github.com/user-attachments/assets/54675e54-4da8-40bc-a530-4ddb325d2583" />
+
+### Components
+
+1. **vLLM Server** - Serves DotsOCR VLM model for document parsing
+2. **RAG API** - FastAPI server handling:
+   - Document upload & processing
+   - Vector embedding (multilingual-e5-large-instruct)
+   - FAISS-based semantic search
+   - Multi-user data management
+
 ---
 
 ## Quick Start
@@ -139,25 +156,6 @@ curl http://localhost:8034/api/users/john/images
 curl http://localhost:8034/api/users/john/images/doc1_page_1.jpg -o image.jpg
 ```
 
-**📖 Full API Reference:** See `API_DOCUMENTATION.md`
-
----
-
-## Architecture
-<img width="682" height="242" alt="image" src="https://github.com/user-attachments/assets/f6bfc072-9dbb-48c2-90ae-110bd3329b60" />
-
-<img width="644" height="342" alt="image" src="https://github.com/user-attachments/assets/54675e54-4da8-40bc-a530-4ddb325d2583" />
-
-### Components
-
-1. **vLLM Server** - Serves DotsOCR VLM model for document parsing
-2. **RAG API** - FastAPI server handling:
-   - Document upload & processing
-   - Vector embedding (multilingual-e5-large-instruct)
-   - FAISS-based semantic search
-   - Multi-user data management
-
----
 
 ## Requirements
 
