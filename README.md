@@ -4,6 +4,7 @@ A production-ready Retrieval-Augmented Generation (RAG) system with PDF document
 
 Link to the DEMO:
 https://leonida-interrupted-gracelyn.ngrok-free.dev/
+I have already indexed pdfs and they are stored in vector store. Please choose the User id: skyro1
 
 ## Features
 
