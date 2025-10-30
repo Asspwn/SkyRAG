@@ -1,0 +1,28 @@
+# Core RAG Framework
+
+haystack-ai==2.18.0 
+qdrant-haystack==8.0.0
+
+# Embeddings
+sentence-transformers==3.4.1
+
+# FastAPI Server
+fastapi==0.115.11
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+
+# vLLM for dots.ocr (0.11.0+ has official DotsOCR support)
+vllm>=0.11.0
+
+# PyTorch (CUDA)
+#torch==2.8.0
+
+# LLM Integration
+openai
+
+# Additional dependencies
+Pillow>=10.0.0
+numpy>=1.24.0
+pydantic>=2.0.0
+
+pymupdf==1.26.5

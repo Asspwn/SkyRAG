@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(tree:*)",
+      "Bash(nvidia-smi:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
