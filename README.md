@@ -4,14 +4,14 @@ A production-ready Retrieval-Augmented Generation (RAG) system with PDF document
 
 ## Features
 
-- 📄 **PDF Document Processing** - Upload and parse PDFs with DotsOCR (VLM-based OCR)
-- 🔍 **Semantic Search** - Find relevant information across documents
-- 🤖 **LLM-Powered Q&A** - Ask questions and get AI-generated answers from your documents
-- 👁️ **Multimodal RAG** - Vision-enabled LLM analyzes both text AND images from PDFs
-- 👥 **Multi-User Support** - Isolated storage per user
-- 🖼️ **Image Extraction** - Automatically extract and serve images from PDFs
-- 🚀 **FastAPI Backend** - Modern async API with auto-documentation
-- 🐳 **Docker Ready** - One-command deployment
+- **PDF Document Processing** - Upload and parse PDFs with DotsOCR (VLM-based OCR)
+- **Semantic Search** - Find relevant information across documents
+- **LLM-Powered Q&A** - Ask questions and get AI-generated answers from your documents
+- **Multimodal RAG** - Vision-enabled LLM analyzes both text AND images from PDFs
+- **Multi-User Support** - Isolated storage per user
+- **Image Extraction** - Automatically extract and serve images from PDFs
+- **FastAPI Backend** - Modern async API with auto-documentation
+- **Docker Ready** - One-command deployment
 
 ---
 
