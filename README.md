@@ -11,8 +11,6 @@ A production-ready Retrieval-Augmented Generation (RAG) system with PDF document
 - **Multi-User Support** - Isolated storage per user
 - **Image Extraction** - Automatically extract and serve images from PDFs
 - **FastAPI Backend** - Modern async API with auto-documentation
-- **Docker Ready** - One-command deployment
-
 ---
 
 ## Quick Start
