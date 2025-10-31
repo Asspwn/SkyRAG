@@ -29,10 +29,11 @@ I have already indexed pdfs and they are stored in vector store. Please choose t
 
 The following chart (LongBench v2 results) shows how different LLMs perform on long-context reasoning tasks.
 LongBench v2 is a benchmark introduced by Bai et al. (2024) (arXiv:2412.15204 v2) designed to evaluate deep understanding and reasoning across long-context multitasks such as:
-	•	single- and multi-document QA
-	•	long in-context learning
-	•	dialogue history understanding
-	•	code-repository and structured-data comprehension
+
+  - single and multi-document QA
+  - long in-context learning
+  - dialogue history understanding
+  - code-repository and structured-data comprehension
 
 Models close to or above human baseline can be used as LLM for RAG given that it can handle Filipono and English language and have multimodal capabilities to describe images.
   
