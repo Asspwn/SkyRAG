@@ -25,6 +25,20 @@ I have already indexed pdfs and they are stored in vector store. Please choose t
   - **Qdrant** - Vector database for efficient similarity search
   - **vLLM v0.11.0** - High-performance inference server
 
+## Other Models
+
+The following chart (LongBench v2 results) shows how different LLMs perform on long-context reasoning tasks.
+LongBench v2 is a benchmark introduced by Bai et al. (2024) (arXiv:2412.15204 v2) designed to evaluate deep understanding and reasoning across long-context multitasks such as:
+	•	single- and multi-document QA
+	•	long in-context learning
+	•	dialogue history understanding
+	•	code-repository and structured-data comprehension
+
+Models close to or above human baseline can be used as LLM for RAG given that it can handle Filipono and English language and have multimodal capabilities to describe images.
+  
+  <img width="1105" height="626" alt="image" src="https://github.com/user-attachments/assets/0e704e3a-3e64-4d4b-b11b-beab908d2daa" />
+ 
+
 ---
 ## Discussion of the solution
 
