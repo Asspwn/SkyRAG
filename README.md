@@ -74,7 +74,7 @@ The requirements to the LLMs are:
 2. **RAG API** - FastAPI server handling:
    - Document upload & processing
    - Vector embedding (multilingual-e5-large-instruct)
-   - FAISS-based semantic search
+   - Qdrant-based semantic search
    - Multi-user data management
 
 ---
@@ -214,47 +214,79 @@ curl http://localhost:8034/api/users/john/images/doc1_page_1.jpg -o image.jpg
 - **RAM:** 16GB minimum, 32GB recommended
 - **Storage:** 30GB+ free space
 
-### Software
-
-- Docker & Docker Compose (for Docker setup)
-- Python 3.10+ (for manual setup)
-- CUDA 12.1+
-- nvidia-docker runtime
-
 ---
 
 ## Project Structure
 
 ```
-User_RAG/
-├── docker-compose.yml         # Docker orchestration
-├── Dockerfile                 # RAG API container
-├── requirements.txt           # Python dependencies
-├── README.md                  # This file
-├── DOCKER_SETUP.md           # Detailed Docker guide
-├── DEPLOYMENT.md             # Detailed manual guide
-├── API_DOCUMENTATION.md      # API reference
+SkyRAG/
+├── requirements.txt                    # Python dependencies
+├── README.md                           # This file
+├── DEPLOYMENT.md                       # Deployment guide
+├── .env.example                        # Environment variables template
 │
-├── src/
-│   ├── api.py                # FastAPI server
-│   ├── rag_service.py        # RAG logic
-│   └── components/           # Custom Haystack components
-│       ├── DotsOCRConverter.py
-│       └── DocumentCleaner.py
+├── src/                                # Core application code
+│   ├── api.py                         # FastAPI server with endpoints
+│   ├── rag_service.py                 # RAG logic & pipeline orchestration
+│   ├── document_status.py             # Document processing status tracking
+│   └── components/                    # Custom Haystack components
+│       ├── __init__.py
+│       ├── dots_ocr_converter.py      # DotsOCR PDF converter component
+│       └── image_metadata_enricher.py # Image metadata enrichment
 │
-├── scripts/
-│   ├── setup_environment.sh  # Environment setup
-│   ├── start_vllm_server.sh  # Start vLLM
-│   └── start_api_server.sh   # Start API
+├── scripts/                            # Deployment scripts
+│   ├── setup_environment.sh           # Environment setup
+│   ├── start_vllm_server.sh          # Start DotsOCR vLLM server
+│   └── start_api_server.sh           # Start FastAPI server
 │
-├── dots.ocr/                 # DotsOCR submodule
-│   └── weights/              # Model weights (downloaded)
+├── ui/                                 # User interface
+│   ├── streamlit_app.py               # Streamlit demo UI
+│   └── .streamlit/                    # Streamlit config
 │
-└── data/                     # User data (created automatically)
-    └── {user_id}/
-        ├── uploads/          # Original PDFs
-        ├── images/           # Extracted images
-        └── vector_stores/    # FAISS indexes
+├── tests/                              # Test files
+│   ├── test_simple_display.py         # Simple display tests
+│   └── test_multimodal.py            # Multimodal RAG tests
+│
+├── notebooks/                          # Jupyter notebooks for exploration
+│
+├── sample_pdfs/                        # Sample PDF files for testing
+│
+├── dots.ocr/                          # DotsOCR VLM submodule
+│   ├── demo/                          # Demo scripts
+│   │   ├── demo_vllm.py              # vLLM inference demo
+│   │   ├── demo_gradio.py            # Gradio UI demo
+│   │   ├── demo_streamlit.py         # Streamlit UI demo
+│   │   └── launch_model_vllm.sh      # Launch script
+│   ├── dots_ocr/                     # Core DotsOCR package
+│   │   ├── parser.py                 # Document parser
+│   │   ├── model/                    # Model implementation
+│   │   │   └── inference.py          # Inference logic
+│   │   └── utils/                    # Utility functions
+│   │       ├── image_utils.py
+│   │       ├── doc_utils.py
+│   │       ├── layout_utils.py
+│   │       ├── format_transformer.py
+│   │       └── prompts.py
+│   ├── weights/                       # Model weights directory
+│   │   └── DotsOCR/                  # DotsOCR model files (downloaded)
+│   │       ├── config.json
+│   │       ├── modeling_dots_ocr.py
+│   │       ├── modeling_dots_ocr_vllm.py
+│   │       └── ...
+│   └── tools/
+│       └── download_model.py         # Model download script
+│
+├── data/                              # User data (auto-created)
+│   └── {user_id}/                    # Per-user isolated storage
+│       ├── uploads/                  # Original uploaded PDFs
+│       ├── images/                   # Extracted images from PDFs
+│       └── vector_store/             # Qdrant vector database
+│           └── meta.json             # Metadata
+│
+└── output/                            # OCR output files (optional)
+    └── {doc_name}/                   # Per-document OCR results
+        ├── {doc}_page_*.json         # JSON format
+        └── {doc}_page_*.md           # Markdown format
 ```
 
 ---
